@@ -9,7 +9,7 @@ function App() {
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            🚀 Shuttle Forge
+            🚀 Shuttle Forge - What up Bitches
           </h1>
           <p className="text-gray-600 mb-8">
             A modern React app with Vite, TypeScript, and Tailwind CSS
