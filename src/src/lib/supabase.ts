@@ -1,8 +1,15 @@
-import { createClient } from '@supabase/supabase-js'
-import { SUPABASE_CONFIG } from '../config/supabase'
+// TODO: Re-enable Supabase integration when dependency is properly installed
+// import { createClient } from '@supabase/supabase-js'
+// import { SUPABASE_CONFIG } from '../config/supabase'
 
-// Create Supabase client
-export const supabase = createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey)
+// export const supabase = createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey)
+
+// Mock Supabase client for now
+export const supabase = {
+  auth: {
+    getUser: () => Promise.resolve({ data: null, error: null })
+  }
+} as any
 
 // Database types (we'll generate these later with Supabase CLI)
 export interface Database {

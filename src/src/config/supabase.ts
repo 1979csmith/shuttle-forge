@@ -1,14 +1,15 @@
 // Supabase Configuration
 // Replace these with your actual Supabase project values
 
+// TODO: Re-enable when Supabase is properly installed
 export const SUPABASE_CONFIG = {
   // Get these from your Supabase project settings:
   // 1. Go to your Supabase project dashboard
   // 2. Click on "Settings" → "API"
   // 3. Copy the "Project URL" and "anon public" key
   
-  url: (import.meta as any).env?.VITE_SUPABASE_URL || 'your_supabase_project_url_here',
-  anonKey: (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || 'your_supabase_anon_key_here'
+  url: 'your_supabase_project_url_here',
+  anonKey: 'your_supabase_anon_key_here'
 }
 
 // Instructions for setup:
