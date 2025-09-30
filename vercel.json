@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "installCommand": "cd src && rm -rf node_modules package-lock.json && npm ci",
+  "buildCommand": "cd src && npm run build",
+  "outputDirectory": "src/dist"
+}
