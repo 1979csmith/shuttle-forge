@@ -1,7 +1,14 @@
 import { useState } from 'react'
+import OwnerPortal from './components/OwnerPortal'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [currentView, setCurrentView] = useState<'home' | 'portal'>('home')
+
+  // Show Owner Portal if selected
+  if (currentView === 'portal') {
+    return <OwnerPortal onBack={() => setCurrentView('home')} />
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -20,6 +27,12 @@ function App() {
             <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
             <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
             <a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a>
+            <button 
+              onClick={() => setCurrentView('portal')}
+              className="bg-gradient-to-r from-green-500 to-blue-600 text-white px-6 py-2 rounded-lg hover:from-green-600 hover:to-blue-700 transition-all"
+            >
+              Owner Portal
+            </button>
             <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all">
               Get Started
             </button>
@@ -43,6 +56,12 @@ function App() {
               <a href="#features" className="block text-gray-300 hover:text-white transition-colors">Features</a>
               <a href="#about" className="block text-gray-300 hover:text-white transition-colors">About</a>
               <a href="#contact" className="block text-gray-300 hover:text-white transition-colors">Contact</a>
+              <button 
+                onClick={() => setCurrentView('portal')}
+                className="w-full bg-gradient-to-r from-green-500 to-blue-600 text-white px-6 py-2 rounded-lg hover:from-green-600 hover:to-blue-700 transition-all"
+              >
+                Owner Portal
+              </button>
               <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all">
                 Get Started
               </button>
