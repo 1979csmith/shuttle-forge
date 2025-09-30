@@ -2,8 +2,10 @@ import { useState } from 'react'
 import ShuttleRequest from './components/ShuttleRequest'
 import OwnerDashboard from './components/OwnerDashboard'
 
+type ViewType = 'customer' | 'owner';
+
 function App() {
-  const [currentView, setCurrentView] = useState<'customer' | 'owner'>('customer')
+  const [currentView, setCurrentView] = useState<ViewType>('customer')
 
   if (currentView === 'owner') {
     return <OwnerDashboard onBack={() => setCurrentView('customer')} />
@@ -36,7 +38,7 @@ function App() {
               <button
                 onClick={() => setCurrentView('owner')}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  currentView === 'owner'
+                  currentView === ('owner' as ViewType)
                     ? 'bg-blue-100 text-blue-700'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                 }`}

@@ -9,7 +9,7 @@ export function useSupabase() {
     const testConnection = async () => {
       try {
         // Test the connection by getting the current user
-        const { data, error } = await supabase.auth.getUser()
+        const { error } = await supabase.auth.getUser()
         
         if (error && error.message !== 'Auth session missing!') {
           throw error

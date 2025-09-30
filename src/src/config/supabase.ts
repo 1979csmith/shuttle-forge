@@ -7,8 +7,8 @@ export const SUPABASE_CONFIG = {
   // 2. Click on "Settings" → "API"
   // 3. Copy the "Project URL" and "anon public" key
   
-  url: import.meta.env.VITE_SUPABASE_URL || 'your_supabase_project_url_here',
-  anonKey: import.meta.env.VITE_SUPABASE_ANON_KEY || 'your_supabase_anon_key_here'
+  url: (import.meta as any).env?.VITE_SUPABASE_URL || 'your_supabase_project_url_here',
+  anonKey: (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || 'your_supabase_anon_key_here'
 }
 
 // Instructions for setup:
