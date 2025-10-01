@@ -1,0 +1,16 @@
+[build]
+  command = "cd src && npm run build"
+  publish = "src/dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+
+
+
+

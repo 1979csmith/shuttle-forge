@@ -1,52 +1,56 @@
 import { useState } from 'react'
-import './App.css'
+import ShuttleRequest from './components/ShuttleRequest'
+import OwnerDashboard from './components/OwnerDashboard'
+
+type ViewType = 'customer' | 'owner';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentView, setCurrentView] = useState<ViewType>('customer')
+
+  if (currentView === 'owner') {
+    return <OwnerDashboard onBack={() => setCurrentView('customer')} />
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            🚀 Shuttle Forge - What up Bitches
-          </h1>
-          <p className="text-gray-600 mb-8">
-            A modern React app with Vite, TypeScript, and Tailwind CSS
-          </p>
-          
-          <div className="bg-gray-50 rounded-lg p-6 mb-6">
-            <p className="text-2xl font-semibold text-gray-700 mb-4">
-              Count: {count}
-            </p>
-            <button
-              onClick={() => setCount((count) => count + 1)}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-105"
-            >
-              Click me!
-            </button>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div className="bg-green-100 p-3 rounded-lg">
-              <div className="font-semibold text-green-800">✅ Vite</div>
-              <div className="text-green-600">Fast build tool</div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation Bar */}
+      <nav className="bg-white shadow-sm border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">S</span>
+              </div>
+              <span className="text-xl font-bold text-gray-900">Shuttle Forge</span>
             </div>
-            <div className="bg-blue-100 p-3 rounded-lg">
-              <div className="font-semibold text-blue-800">⚛️ React</div>
-              <div className="text-blue-600">UI library</div>
-            </div>
-            <div className="bg-purple-100 p-3 rounded-lg">
-              <div className="font-semibold text-purple-800">📘 TypeScript</div>
-              <div className="text-purple-600">Type safety</div>
-            </div>
-            <div className="bg-cyan-100 p-3 rounded-lg">
-              <div className="font-semibold text-cyan-800">🎨 Tailwind</div>
-              <div className="text-cyan-600">Utility CSS</div>
+            
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setCurrentView('customer')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  currentView === 'customer'
+                    ? 'bg-blue-100 text-blue-700'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                }`}
+              >
+                Customer View
+              </button>
+              <button
+                onClick={() => setCurrentView('owner')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  currentView === ('owner' as ViewType)
+                    ? 'bg-blue-100 text-blue-700'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                }`}
+              >
+                Owner Dashboard
+              </button>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
+
+      <ShuttleRequest />
     </div>
   )
 }

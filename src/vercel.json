@@ -1,0 +1,12 @@
+{
+  "buildCommand": "cd src && npm run build",
+  "outputDirectory": "src/dist",
+  "installCommand": "cd src && npm install",
+  "framework": "vite",
+  "nodeVersion": "18.x",
+  "functions": {
+    "src/api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}
